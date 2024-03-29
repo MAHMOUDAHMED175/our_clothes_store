@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1003026458129",
+    "project_id": "ourclothes-fcdb6",
+    "storage_bucket": "ourclothes-fcdb6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003026458129:android:4849282b4144214a8b73b0",
+        "android_client_info": {
+          "package_name": "com.example.our_clothes_store"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJTcSw1DP3hTb4isCH4sim1DFiCn1HvJM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
