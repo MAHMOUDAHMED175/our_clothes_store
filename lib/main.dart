@@ -25,6 +25,6 @@ void main() async {
       [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
 
   runApp(
-    const OurClothes(),
+   const  OurClothes(),
   );
 }
