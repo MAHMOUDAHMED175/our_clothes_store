@@ -18,5 +18,5 @@ void main() async {
               projectId: "ourclothes-fcdb6"))
       : await Firebase.initializeApp();
 
-  runApp(const OurClothes());
+  runApp( OurClothes());
 }
