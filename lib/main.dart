@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'our_clothes.dart';
 
 void main() async {
+  
   WidgetsFlutterBinding.ensureInitialized();
 
   Platform.isAndroid
@@ -17,5 +18,7 @@ void main() async {
               projectId: "ourclothes-fcdb6"))
       : await Firebase.initializeApp();
 
-  runApp(const OurClothes());
+  runApp(
+    OurClothes()
+  );
 }
