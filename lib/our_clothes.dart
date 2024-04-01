@@ -24,7 +24,7 @@ class OurClothes extends StatelessWidget {
               theme: themeDark(),
               initialRoute: AppRoutes.login,
               onGenerateRoute: AppRoutes.onGenerateRoute,
-              locale: const Locale('ar'),
+              locale: const Locale('en'),
               supportedLocales: AppLocalizationsSetup.supportedLocales,
               localizationsDelegates:
                   AppLocalizationsSetup.localizationsDelegates,

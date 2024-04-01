@@ -4,6 +4,7 @@ import 'package:our_clothes_store/core/common/widgets/custom_linear_button.dart'
 import 'package:our_clothes_store/core/common/widgets/text_app.dart';
 import 'package:our_clothes_store/core/extensions/context_extension.dart';
 import 'package:our_clothes_store/core/language/lang_keys.dart';
+import 'package:our_clothes_store/core/routes/app_routes.dart';
 import 'package:our_clothes_store/core/style/fonts/font_weight_helper.dart';
 
 class LoginButton extends StatelessWidget {
@@ -14,6 +15,7 @@ class LoginButton extends StatelessWidget {
     return CustomLinearButton(
       onPressed: () {
         // _validateThenDoLogin(context);
+        context.pushName(AppRoutes.signUp);
       },
       height: 50.h,
       width: MediaQuery.of(context).size.width,
