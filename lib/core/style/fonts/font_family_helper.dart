@@ -1,4 +1,3 @@
-
 class FontFamilyHelper {
   const FontFamilyHelper._();
 
@@ -6,12 +5,13 @@ class FontFamilyHelper {
 
   static const String poppinsEnglish = 'Poppins';
 
-  // static String geLocalozedFontFamily() {
-  //   final currentLanguage = SharedPref().getString(PrefKeys.language);
-  //   if (currentLanguage == 'ar') {
-  //     return cairoArabic;
-  //   } else {
-  //     return poppinsEnglish;
-  //   }
-  // }
+  static String geLocalozedFontFamily() {
+    // final currentLanguage = SharedPref().getString(PrefKeys.language);
+    const currentLanguage = 'ar';
+    if (currentLanguage == 'ar') {
+      return cairoArabic;
+    } else {
+      return poppinsEnglish;
+    }
+  }
 }

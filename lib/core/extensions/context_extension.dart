@@ -10,6 +10,7 @@ extension ContextExt on BuildContext {
 
   MyColors get color=>Theme.of(this).extension<MyColors>()!;
   MyAssets get assets=>Theme.of(this).extension<MyAssets>()!;
+  TextStyle get textStyle=>Theme.of(this).textTheme.displaySmall!;
 
 
 
