@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:our_clothes_store/core/extensions/context_extension.dart';
+import 'package:our_clothes_store/core/language/lang_keys.dart';
 import 'package:our_clothes_store/core/routes/app_routes.dart';
 
 class One extends StatelessWidget {
@@ -23,13 +24,14 @@ class One extends StatelessWidget {
               ),
             ),
             TextButton(
-                onPressed: () {
-                  context.pushName(AppRoutes.two);
-                },
-                child: Text(
-                  'oooooooooooooooooooooooooooone',
-                  style: TextStyle(color: context.color.mainColor),
-                )),
+              onPressed: () {
+                context.pushName(AppRoutes.two);
+              },
+              child: Text(
+                context.translate(LangKeys.appName),
+                style: TextStyle(color: context.color.mainColor),
+              ),
+            ),
           ],
         ),
       ),
