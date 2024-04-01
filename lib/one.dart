@@ -8,13 +8,30 @@ class One extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.teal,
       body: Center(
-        child: TextButton(
-            onPressed: () {
-                            context.pushName(AppRoutes.two);
-
-            },
-            child: const Text('oooooooooooooooooooooooooooone')),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 300,
+              width: 300,
+              child: Image(
+                image: AssetImage(
+                  context.assets.homeBg!,
+                ),
+                fit: BoxFit.contain,
+              ),
+            ),
+            TextButton(
+                onPressed: () {
+                  context.pushName(AppRoutes.two);
+                },
+                child: Text(
+                  'oooooooooooooooooooooooooooone',
+                  style: TextStyle(color: context.color.mainColor),
+                )),
+          ],
+        ),
       ),
     );
   }
