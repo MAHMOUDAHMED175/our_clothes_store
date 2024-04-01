@@ -22,7 +22,7 @@ class OurClothes extends StatelessWidget {
               title: 'OurClothes',
               debugShowCheckedModeBanner: EnvVaiable.instance.debugmod,
               theme: themeDark(),
-              initialRoute: AppRoutes.one,
+              initialRoute: AppRoutes.login,
               onGenerateRoute: AppRoutes.onGenerateRoute,
               locale: const Locale('ar'),
               supportedLocales: AppLocalizationsSetup.supportedLocales,
