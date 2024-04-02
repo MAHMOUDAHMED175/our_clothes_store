@@ -1,7 +1,8 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:our_clothes_store/core/animations/animate_do.dart';
+import 'package:our_clothes_store/core/app/app_cubit/cubit/app_cubit_cubit.dart';
 import 'package:our_clothes_store/core/common/widgets/custom_linear_button.dart';
 import 'package:our_clothes_store/core/common/widgets/text_app.dart';
 import 'package:our_clothes_store/core/extensions/context_extension.dart';
@@ -13,21 +14,29 @@ class DarkAndLangButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<AppCubitCubit>();
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         // Dark Mode Button
-           CustomFadeInRight(
+        BlocBuilder(
+          bloc: cubit,
+          builder: (context, state) {
+            return CustomFadeInRight(
               duration: 400,
               child: CustomLinearButton(
-                onPressed: (){},
-                child: const Icon(
-                  Icons.light_mode_rounded,
+                onPressed: cubit.changeAppThemeMode,
+                child: Icon(
+                  cubit.isDark
+                      ? Icons.dark_mode_rounded
+                      : Icons.light_mode_rounded,
                   color: Colors.white,
                 ),
               ),
-            ),
-          
+            );
+          },
+        ),
+
         //Language Button
         CustomFadeInLeft(
           duration: 400,

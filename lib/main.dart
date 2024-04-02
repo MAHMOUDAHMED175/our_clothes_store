@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:our_clothes_store/core/app/bloc_observer.dart';
+import 'package:our_clothes_store/core/di/injection_container.dart';
+import 'package:our_clothes_store/core/services/shared_pref/shared_pref.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'our_clothes.dart';
 
@@ -22,7 +25,8 @@ void main() async {
         )
       : await Firebase.initializeApp();
   Bloc.observer = AppBlocObserver();
-
+  await SharedPref().instantiatePreferences();
+  await setupInjector();
   await SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
 
