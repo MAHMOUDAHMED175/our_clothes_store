@@ -4,6 +4,8 @@ part of 'app_cubit_cubit.dart';
 class AppCubitState with _$AppCubitState {
   const factory AppCubitState.initial() = _Initial;
   const factory AppCubitState.themeChangeMode({required bool isDark}) =
-      themeChangeMode;
+      themeChangeModeState;
+  const factory AppCubitState.languageChange({required Locale locale}) =
+      languageChangeState;
 }
 // dart run build_runner build --delete--conflicting-outputs

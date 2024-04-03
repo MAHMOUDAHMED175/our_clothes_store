@@ -6,6 +6,7 @@ import 'package:our_clothes_store/core/app/app_cubit/cubit/app_cubit_cubit.dart'
 import 'package:our_clothes_store/core/common/widgets/custom_linear_button.dart';
 import 'package:our_clothes_store/core/common/widgets/text_app.dart';
 import 'package:our_clothes_store/core/extensions/context_extension.dart';
+import 'package:our_clothes_store/core/language/app_localizations.dart';
 import 'package:our_clothes_store/core/language/lang_keys.dart';
 import 'package:our_clothes_store/core/style/fonts/font_weight_helper.dart';
 
@@ -38,27 +39,39 @@ class DarkAndLangButtons extends StatelessWidget {
         ),
 
         //Language Button
-        CustomFadeInLeft(
-          duration: 400,
-          child: CustomLinearButton(
-            onPressed: () {
-              // if (AppLocalizations.of(context)!.isEnLocale) {
-              //   cubit.toArabic();
-              // } else {
-              //   cubit.toEnglish();
-              // }
-            },
-            height: 44.h,
-            width: 100.w,
-            child: TextApp(
-              text: context.translate(LangKeys.language),
-              theme: context.textStyle.copyWith(
-                fontSize: 16.sp,
-                fontWeight: FontWeightHelper.bold,
-                color: Colors.white,
+        BlocBuilder(
+          bloc: cubit,
+          builder: (context, state) {
+            return CustomFadeInLeft(
+              duration: 400,
+              child: CustomLinearButton(
+                onPressed: () {
+                  if (AppLocalizations.of(context)!.isEnLocale) {
+                    cubit.toArabic();
+                  } else {
+                    cubit.toEnglish();
+                  }
+
+                  // if(context.translate(LangKeys.language)=='English') {
+                  // cubit.toEnglish();
+                  // }else{
+                  // cubit.toArabic();
+                  // }
+                  
+                },
+                height: 44.h,
+                width: 100.w,
+                child: TextApp(
+                  text: context.translate(LangKeys.language),
+                  theme: context.textStyle.copyWith(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeightHelper.bold,
+                    color: Colors.white,
+                  ),
+                ),
               ),
-            ),
-          ),
+            );
+          },
         ),
       ],
     );

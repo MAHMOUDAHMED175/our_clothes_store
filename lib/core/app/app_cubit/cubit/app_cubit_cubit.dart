@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:our_clothes_store/core/services/shared_pref/pref_keys.dart';
@@ -10,11 +11,8 @@ part 'app_cubit_cubit.freezed.dart';
 class AppCubitCubit extends Cubit<AppCubitState> {
   AppCubitCubit() : super(const AppCubitState.initial());
 
-
-
-
-    bool isDark = true;
-
+  bool isDark = true;
+  String currentLangCode = 'en';
 
 //Theme Mode
   Future<void> changeAppThemeMode({bool? sharedMode}) async {
@@ -28,4 +26,21 @@ class AppCubitCubit extends Cubit<AppCubitState> {
       });
     }
   }
+
+  void getSavedLanguage() {
+    final result = SharedPref().containPreference(PrefKeys.language)
+        ? SharedPref().getString(PrefKeys.language)
+        : 'en';
+    currentLangCode = result!;
+    emit(AppCubitState.languageChange(locale: Locale(currentLangCode)));
+  }
+
+  Future<void> _changeLanguage(String langCode) async {
+    await SharedPref().setString(PrefKeys.language, langCode);
+    currentLangCode = langCode;
+    emit(AppCubitState.languageChange(locale: Locale(currentLangCode)));
+  }
+
+  void toArabic() => _changeLanguage('ar');
+  void toEnglish() => _changeLanguage('en');
 }

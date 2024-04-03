@@ -37,7 +37,7 @@ class OurClothes extends StatelessWidget {
                     theme: cubit.isDark?themeLight(): themeDark(),
                     initialRoute: AppRoutes.login,
                     onGenerateRoute: AppRoutes.onGenerateRoute,
-                    locale: const Locale('en'),
+                    locale:  Locale(cubit.currentLangCode),
                     supportedLocales: AppLocalizationsSetup.supportedLocales,
                     localizationsDelegates:
                         AppLocalizationsSetup.localizationsDelegates,
