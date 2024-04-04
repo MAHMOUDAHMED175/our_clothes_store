@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:our_clothes_store/core/extensions/context_extension.dart';
-import 'package:our_clothes_store/features/auth/presentation/refactors/auth_custom_painter.dart';
-import 'package:our_clothes_store/features/auth/presentation/refactors/login_body.dart';
+import 'package:our_clothes_store/features/auth/presentation/view/refactors/auth_custom_painter.dart';
+import 'package:our_clothes_store/features/auth/presentation/view/refactors/login_body.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

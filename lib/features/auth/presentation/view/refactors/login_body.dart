@@ -6,10 +6,10 @@ import 'package:our_clothes_store/core/common/widgets/text_app.dart';
 import 'package:our_clothes_store/core/extensions/context_extension.dart';
 import 'package:our_clothes_store/core/language/lang_keys.dart';
 import 'package:our_clothes_store/core/style/fonts/font_weight_helper.dart';
-import 'package:our_clothes_store/features/auth/presentation/widgets/auth_title_info.dart';
-import 'package:our_clothes_store/features/auth/presentation/widgets/dark_and_lang_buttons.dart';
-import 'package:our_clothes_store/features/auth/presentation/widgets/login/login_button.dart';
-import 'package:our_clothes_store/features/auth/presentation/widgets/login/login_text_form.dart';
+import 'package:our_clothes_store/features/auth/presentation/view/widgets/auth_title_info.dart';
+import 'package:our_clothes_store/features/auth/presentation/view/widgets/dark_and_lang_buttons.dart';
+import 'package:our_clothes_store/features/auth/presentation/view/widgets/login/login_button.dart';
+import 'package:our_clothes_store/features/auth/presentation/view/widgets/login/login_text_form.dart';
 
 class LoginBody extends StatelessWidget {
   const LoginBody({super.key});

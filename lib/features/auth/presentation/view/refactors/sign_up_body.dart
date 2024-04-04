@@ -7,11 +7,11 @@ import 'package:our_clothes_store/core/extensions/context_extension.dart';
 import 'package:our_clothes_store/core/language/lang_keys.dart';
 import 'package:our_clothes_store/core/routes/app_routes.dart';
 import 'package:our_clothes_store/core/style/fonts/font_weight_helper.dart';
-import 'package:our_clothes_store/features/auth/presentation/widgets/auth_title_info.dart';
-import 'package:our_clothes_store/features/auth/presentation/widgets/dark_and_lang_buttons.dart';
-import 'package:our_clothes_store/features/auth/presentation/widgets/sign_up/sign_up_button.dart';
-import 'package:our_clothes_store/features/auth/presentation/widgets/sign_up/sign_up_text_form.dart';
-import 'package:our_clothes_store/features/auth/presentation/widgets/sign_up/user_avatar_image.dart';
+import 'package:our_clothes_store/features/auth/presentation/view/widgets/auth_title_info.dart';
+import 'package:our_clothes_store/features/auth/presentation/view/widgets/dark_and_lang_buttons.dart';
+import 'package:our_clothes_store/features/auth/presentation/view/widgets/sign_up/sign_up_button.dart';
+import 'package:our_clothes_store/features/auth/presentation/view/widgets/sign_up/sign_up_text_form.dart';
+import 'package:our_clothes_store/features/auth/presentation/view/widgets/sign_up/user_avatar_image.dart';
 
 class SignUpBody extends StatelessWidget {
   const SignUpBody({super.key});

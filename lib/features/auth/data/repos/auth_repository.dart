@@ -3,12 +3,24 @@ import 'package:our_clothes_store/core/utils/app_strings.dart';
 import 'package:our_clothes_store/features/auth/data/data_source/auth_data_source.dart';
 import 'package:our_clothes_store/features/auth/data/models/login_request_body.dart';
 import 'package:our_clothes_store/features/auth/data/models/login_response.dart';
+import 'package:our_clothes_store/features/auth/data/models/user_role_response.dart';
 
-class AuthRepository {
-  const AuthRepository(this._authDataSource);
+abstract class AuthRepositoryAbstr {
+  Future<ApiResult<LoginResponse>> login(
+    LoginRequestBody loginRequestBody,
+  );
+
+  Future<UserRoleResponse> userRole(
+    String token,
+  );
+}
+
+class AuthRepository extends AuthRepositoryAbstr {
+  AuthRepository(this._authDataSource);
 
   final AuthDataSource _authDataSource;
 
+  @override
   Future<ApiResult<LoginResponse>> login(
     LoginRequestBody loginRequestBody,
   ) async {
@@ -20,5 +32,13 @@ class AuthRepository {
     } catch (error) {
       return const ApiResult.failure(errorMessage);
     }
+  }
+
+  @override
+  Future<UserRoleResponse> userRole(
+    String token,
+  ) async {
+    final result = await _authDataSource.userRole(token: token);
+    return result;
   }
 }
