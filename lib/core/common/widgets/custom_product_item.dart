@@ -1,18 +1,12 @@
-// import 'package:asroo_store/core/app/share/share_cubit.dart';
-// import 'package:asroo_store/core/common/widgets/custom_container_linear_customer.dart';
-// import 'package:asroo_store/core/common/widgets/custom_favorite_button.dart';
-// import 'package:asroo_store/core/common/widgets/custom_share_button.dart';
-// import 'package:asroo_store/core/common/widgets/text_app.dart';
-// import 'package:asroo_store/core/extensions/context_extension.dart';
-// import 'package:asroo_store/core/extensions/string_exetension.dart';
-// import 'package:asroo_store/core/routes/app_routes.dart';
-// import 'package:asroo_store/core/style/fonts/font_weight_helper.dart';
-// import 'package:asroo_store/features/customer/favorites/presentation/cubit/favorites_cubit.dart';
-// import 'package:cached_network_image/cached_network_image.dart';
 // import 'package:flutter/material.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+// import 'package:our_clothes_store/core/common/widgets/custom_container_linear_customer.dart';
+// import 'package:our_clothes_store/core/common/widgets/custom_favorite_button.dart';
+// import 'package:our_clothes_store/core/common/widgets/text_app.dart';
+// import 'package:our_clothes_store/core/extensions/context_extension.dart';
+// import 'package:our_clothes_store/core/routes/app_routes.dart';
+// import 'package:our_clothes_store/core/style/fonts/font_weight_helper.dart';
 // class CustomProductItem extends StatelessWidget {
 //   const CustomProductItem({
 //     required this.imageUrl,
