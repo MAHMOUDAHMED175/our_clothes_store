@@ -197,10 +197,10 @@ class __$$NewUpdateProductEventImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? body = freezed,
+    Object? body = null,
   }) {
     return _then(_$NewUpdateProductEventImpl(
-      body: freezed == body
+      body: null == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as UpdateProductRequestBody,
@@ -226,12 +226,11 @@ class _$NewUpdateProductEventImpl implements NewUpdateProductEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NewUpdateProductEventImpl &&
-            const DeepCollectionEquality().equals(other.body, body));
+            (identical(other.body, body) || other.body == body));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(body));
+  int get hashCode => Object.hash(runtimeType, body);
 
   @JsonKey(ignore: true)
   @override
