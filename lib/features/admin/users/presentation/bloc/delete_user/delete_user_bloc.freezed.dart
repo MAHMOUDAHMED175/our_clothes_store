@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'create_prodcut_bloc.dart';
+part of 'delete_user_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,58 +15,58 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$CreateProdcutEvent {
+mixin _$DeleteUserEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(CreateProductRequestBody body) creatProduct,
+    required TResult Function(String userId) deleteUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(CreateProductRequestBody body)? creatProduct,
+    TResult? Function(String userId)? deleteUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(CreateProductRequestBody body)? creatProduct,
+    TResult Function(String userId)? deleteUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(NewCreateProductEvent value) creatProduct,
+    required TResult Function(RemoveUserEvent value) deleteUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(NewCreateProductEvent value)? creatProduct,
+    TResult? Function(RemoveUserEvent value)? deleteUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(NewCreateProductEvent value)? creatProduct,
+    TResult Function(RemoveUserEvent value)? deleteUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CreateProdcutEventCopyWith<$Res> {
-  factory $CreateProdcutEventCopyWith(
-          CreateProdcutEvent value, $Res Function(CreateProdcutEvent) then) =
-      _$CreateProdcutEventCopyWithImpl<$Res, CreateProdcutEvent>;
+abstract class $DeleteUserEventCopyWith<$Res> {
+  factory $DeleteUserEventCopyWith(
+          DeleteUserEvent value, $Res Function(DeleteUserEvent) then) =
+      _$DeleteUserEventCopyWithImpl<$Res, DeleteUserEvent>;
 }
 
 /// @nodoc
-class _$CreateProdcutEventCopyWithImpl<$Res, $Val extends CreateProdcutEvent>
-    implements $CreateProdcutEventCopyWith<$Res> {
-  _$CreateProdcutEventCopyWithImpl(this._value, this._then);
+class _$DeleteUserEventCopyWithImpl<$Res, $Val extends DeleteUserEvent>
+    implements $DeleteUserEventCopyWith<$Res> {
+  _$DeleteUserEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -83,7 +83,7 @@ abstract class _$$StartedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$StartedImplCopyWithImpl<$Res>
-    extends _$CreateProdcutEventCopyWithImpl<$Res, _$StartedImpl>
+    extends _$DeleteUserEventCopyWithImpl<$Res, _$StartedImpl>
     implements _$$StartedImplCopyWith<$Res> {
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
@@ -97,7 +97,7 @@ class _$StartedImpl implements _Started {
 
   @override
   String toString() {
-    return 'CreateProdcutEvent.started()';
+    return 'DeleteUserEvent.started()';
   }
 
   @override
@@ -113,7 +113,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(CreateProductRequestBody body) creatProduct,
+    required TResult Function(String userId) deleteUser,
   }) {
     return started();
   }
@@ -122,7 +122,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(CreateProductRequestBody body)? creatProduct,
+    TResult? Function(String userId)? deleteUser,
   }) {
     return started?.call();
   }
@@ -131,7 +131,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(CreateProductRequestBody body)? creatProduct,
+    TResult Function(String userId)? deleteUser,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -144,7 +144,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(NewCreateProductEvent value) creatProduct,
+    required TResult Function(RemoveUserEvent value) deleteUser,
   }) {
     return started(this);
   }
@@ -153,7 +153,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(NewCreateProductEvent value)? creatProduct,
+    TResult? Function(RemoveUserEvent value)? deleteUser,
   }) {
     return started?.call(this);
   }
@@ -162,7 +162,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(NewCreateProductEvent value)? creatProduct,
+    TResult Function(RemoveUserEvent value)? deleteUser,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -172,100 +172,99 @@ class _$StartedImpl implements _Started {
   }
 }
 
-abstract class _Started implements CreateProdcutEvent {
+abstract class _Started implements DeleteUserEvent {
   const factory _Started() = _$StartedImpl;
 }
 
 /// @nodoc
-abstract class _$$NewCreateProductEventImplCopyWith<$Res> {
-  factory _$$NewCreateProductEventImplCopyWith(
-          _$NewCreateProductEventImpl value,
-          $Res Function(_$NewCreateProductEventImpl) then) =
-      __$$NewCreateProductEventImplCopyWithImpl<$Res>;
+abstract class _$$RemoveUserEventImplCopyWith<$Res> {
+  factory _$$RemoveUserEventImplCopyWith(_$RemoveUserEventImpl value,
+          $Res Function(_$RemoveUserEventImpl) then) =
+      __$$RemoveUserEventImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({CreateProductRequestBody body});
+  $Res call({String userId});
 }
 
 /// @nodoc
-class __$$NewCreateProductEventImplCopyWithImpl<$Res>
-    extends _$CreateProdcutEventCopyWithImpl<$Res, _$NewCreateProductEventImpl>
-    implements _$$NewCreateProductEventImplCopyWith<$Res> {
-  __$$NewCreateProductEventImplCopyWithImpl(_$NewCreateProductEventImpl _value,
-      $Res Function(_$NewCreateProductEventImpl) _then)
+class __$$RemoveUserEventImplCopyWithImpl<$Res>
+    extends _$DeleteUserEventCopyWithImpl<$Res, _$RemoveUserEventImpl>
+    implements _$$RemoveUserEventImplCopyWith<$Res> {
+  __$$RemoveUserEventImplCopyWithImpl(
+      _$RemoveUserEventImpl _value, $Res Function(_$RemoveUserEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? body = null,
+    Object? userId = null,
   }) {
-    return _then(_$NewCreateProductEventImpl(
-      body: null == body
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
-              as CreateProductRequestBody,
+    return _then(_$RemoveUserEventImpl(
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 
-class _$NewCreateProductEventImpl implements NewCreateProductEvent {
-  const _$NewCreateProductEventImpl({required this.body});
+class _$RemoveUserEventImpl implements RemoveUserEvent {
+  const _$RemoveUserEventImpl({required this.userId});
 
   @override
-  final CreateProductRequestBody body;
+  final String userId;
 
   @override
   String toString() {
-    return 'CreateProdcutEvent.creatProduct(body: $body)';
+    return 'DeleteUserEvent.deleteUser(userId: $userId)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NewCreateProductEventImpl &&
-            (identical(other.body, body) || other.body == body));
+            other is _$RemoveUserEventImpl &&
+            (identical(other.userId, userId) || other.userId == userId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, body);
+  int get hashCode => Object.hash(runtimeType, userId);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$NewCreateProductEventImplCopyWith<_$NewCreateProductEventImpl>
-      get copyWith => __$$NewCreateProductEventImplCopyWithImpl<
-          _$NewCreateProductEventImpl>(this, _$identity);
+  _$$RemoveUserEventImplCopyWith<_$RemoveUserEventImpl> get copyWith =>
+      __$$RemoveUserEventImplCopyWithImpl<_$RemoveUserEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(CreateProductRequestBody body) creatProduct,
+    required TResult Function(String userId) deleteUser,
   }) {
-    return creatProduct(body);
+    return deleteUser(userId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(CreateProductRequestBody body)? creatProduct,
+    TResult? Function(String userId)? deleteUser,
   }) {
-    return creatProduct?.call(body);
+    return deleteUser?.call(userId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(CreateProductRequestBody body)? creatProduct,
+    TResult Function(String userId)? deleteUser,
     required TResult orElse(),
   }) {
-    if (creatProduct != null) {
-      return creatProduct(body);
+    if (deleteUser != null) {
+      return deleteUser(userId);
     }
     return orElse();
   }
@@ -274,51 +273,50 @@ class _$NewCreateProductEventImpl implements NewCreateProductEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(NewCreateProductEvent value) creatProduct,
+    required TResult Function(RemoveUserEvent value) deleteUser,
   }) {
-    return creatProduct(this);
+    return deleteUser(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(NewCreateProductEvent value)? creatProduct,
+    TResult? Function(RemoveUserEvent value)? deleteUser,
   }) {
-    return creatProduct?.call(this);
+    return deleteUser?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(NewCreateProductEvent value)? creatProduct,
+    TResult Function(RemoveUserEvent value)? deleteUser,
     required TResult orElse(),
   }) {
-    if (creatProduct != null) {
-      return creatProduct(this);
+    if (deleteUser != null) {
+      return deleteUser(this);
     }
     return orElse();
   }
 }
 
-abstract class NewCreateProductEvent implements CreateProdcutEvent {
-  const factory NewCreateProductEvent(
-          {required final CreateProductRequestBody body}) =
-      _$NewCreateProductEventImpl;
+abstract class RemoveUserEvent implements DeleteUserEvent {
+  const factory RemoveUserEvent({required final String userId}) =
+      _$RemoveUserEventImpl;
 
-  CreateProductRequestBody get body;
+  String get userId;
   @JsonKey(ignore: true)
-  _$$NewCreateProductEventImplCopyWith<_$NewCreateProductEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$RemoveUserEventImplCopyWith<_$RemoveUserEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-mixin _$CreateProdcutState {
+mixin _$DeleteUserState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
+    required TResult Function(String userId) loading,
     required TResult Function() success,
     required TResult Function(String error) error,
   }) =>
@@ -326,7 +324,7 @@ mixin _$CreateProdcutState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
+    TResult? Function(String userId)? loading,
     TResult? Function()? success,
     TResult? Function(String error)? error,
   }) =>
@@ -334,7 +332,7 @@ mixin _$CreateProdcutState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
+    TResult Function(String userId)? loading,
     TResult Function()? success,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -368,16 +366,16 @@ mixin _$CreateProdcutState {
 }
 
 /// @nodoc
-abstract class $CreateProdcutStateCopyWith<$Res> {
-  factory $CreateProdcutStateCopyWith(
-          CreateProdcutState value, $Res Function(CreateProdcutState) then) =
-      _$CreateProdcutStateCopyWithImpl<$Res, CreateProdcutState>;
+abstract class $DeleteUserStateCopyWith<$Res> {
+  factory $DeleteUserStateCopyWith(
+          DeleteUserState value, $Res Function(DeleteUserState) then) =
+      _$DeleteUserStateCopyWithImpl<$Res, DeleteUserState>;
 }
 
 /// @nodoc
-class _$CreateProdcutStateCopyWithImpl<$Res, $Val extends CreateProdcutState>
-    implements $CreateProdcutStateCopyWith<$Res> {
-  _$CreateProdcutStateCopyWithImpl(this._value, this._then);
+class _$DeleteUserStateCopyWithImpl<$Res, $Val extends DeleteUserState>
+    implements $DeleteUserStateCopyWith<$Res> {
+  _$DeleteUserStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -394,7 +392,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$CreateProdcutStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$DeleteUserStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -408,7 +406,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'CreateProdcutState.initial()';
+    return 'DeleteUserState.initial()';
   }
 
   @override
@@ -424,7 +422,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
+    required TResult Function(String userId) loading,
     required TResult Function() success,
     required TResult Function(String error) error,
   }) {
@@ -435,7 +433,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
+    TResult? Function(String userId)? loading,
     TResult? Function()? success,
     TResult? Function(String error)? error,
   }) {
@@ -446,7 +444,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
+    TResult Function(String userId)? loading,
     TResult Function()? success,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -495,7 +493,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements CreateProdcutState {
+abstract class _Initial implements DeleteUserState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -504,69 +502,95 @@ abstract class _$$LoadingStateImplCopyWith<$Res> {
   factory _$$LoadingStateImplCopyWith(
           _$LoadingStateImpl value, $Res Function(_$LoadingStateImpl) then) =
       __$$LoadingStateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String userId});
 }
 
 /// @nodoc
 class __$$LoadingStateImplCopyWithImpl<$Res>
-    extends _$CreateProdcutStateCopyWithImpl<$Res, _$LoadingStateImpl>
+    extends _$DeleteUserStateCopyWithImpl<$Res, _$LoadingStateImpl>
     implements _$$LoadingStateImplCopyWith<$Res> {
   __$$LoadingStateImplCopyWithImpl(
       _$LoadingStateImpl _value, $Res Function(_$LoadingStateImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userId = null,
+  }) {
+    return _then(_$LoadingStateImpl(
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$LoadingStateImpl implements LoadingState {
-  const _$LoadingStateImpl();
+  const _$LoadingStateImpl({required this.userId});
+
+  @override
+  final String userId;
 
   @override
   String toString() {
-    return 'CreateProdcutState.loading()';
+    return 'DeleteUserState.loading(userId: $userId)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingStateImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$LoadingStateImpl &&
+            (identical(other.userId, userId) || other.userId == userId));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, userId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadingStateImplCopyWith<_$LoadingStateImpl> get copyWith =>
+      __$$LoadingStateImplCopyWithImpl<_$LoadingStateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
+    required TResult Function(String userId) loading,
     required TResult Function() success,
     required TResult Function(String error) error,
   }) {
-    return loading();
+    return loading(userId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
+    TResult? Function(String userId)? loading,
     TResult? Function()? success,
     TResult? Function(String error)? error,
   }) {
-    return loading?.call();
+    return loading?.call(userId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
+    TResult Function(String userId)? loading,
     TResult Function()? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
-      return loading();
+      return loading(userId);
     }
     return orElse();
   }
@@ -609,8 +633,14 @@ class _$LoadingStateImpl implements LoadingState {
   }
 }
 
-abstract class LoadingState implements CreateProdcutState {
-  const factory LoadingState() = _$LoadingStateImpl;
+abstract class LoadingState implements DeleteUserState {
+  const factory LoadingState({required final String userId}) =
+      _$LoadingStateImpl;
+
+  String get userId;
+  @JsonKey(ignore: true)
+  _$$LoadingStateImplCopyWith<_$LoadingStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -622,7 +652,7 @@ abstract class _$$SuccessStateImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$SuccessStateImplCopyWithImpl<$Res>
-    extends _$CreateProdcutStateCopyWithImpl<$Res, _$SuccessStateImpl>
+    extends _$DeleteUserStateCopyWithImpl<$Res, _$SuccessStateImpl>
     implements _$$SuccessStateImplCopyWith<$Res> {
   __$$SuccessStateImplCopyWithImpl(
       _$SuccessStateImpl _value, $Res Function(_$SuccessStateImpl) _then)
@@ -636,7 +666,7 @@ class _$SuccessStateImpl implements SuccessState {
 
   @override
   String toString() {
-    return 'CreateProdcutState.success()';
+    return 'DeleteUserState.success()';
   }
 
   @override
@@ -652,7 +682,7 @@ class _$SuccessStateImpl implements SuccessState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
+    required TResult Function(String userId) loading,
     required TResult Function() success,
     required TResult Function(String error) error,
   }) {
@@ -663,7 +693,7 @@ class _$SuccessStateImpl implements SuccessState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
+    TResult? Function(String userId)? loading,
     TResult? Function()? success,
     TResult? Function(String error)? error,
   }) {
@@ -674,7 +704,7 @@ class _$SuccessStateImpl implements SuccessState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
+    TResult Function(String userId)? loading,
     TResult Function()? success,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -723,7 +753,7 @@ class _$SuccessStateImpl implements SuccessState {
   }
 }
 
-abstract class SuccessState implements CreateProdcutState {
+abstract class SuccessState implements DeleteUserState {
   const factory SuccessState() = _$SuccessStateImpl;
 }
 
@@ -738,7 +768,7 @@ abstract class _$$ErrorStateImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorStateImplCopyWithImpl<$Res>
-    extends _$CreateProdcutStateCopyWithImpl<$Res, _$ErrorStateImpl>
+    extends _$DeleteUserStateCopyWithImpl<$Res, _$ErrorStateImpl>
     implements _$$ErrorStateImplCopyWith<$Res> {
   __$$ErrorStateImplCopyWithImpl(
       _$ErrorStateImpl _value, $Res Function(_$ErrorStateImpl) _then)
@@ -768,7 +798,7 @@ class _$ErrorStateImpl implements ErrorState {
 
   @override
   String toString() {
-    return 'CreateProdcutState.error(error: $error)';
+    return 'DeleteUserState.error(error: $error)';
   }
 
   @override
@@ -792,7 +822,7 @@ class _$ErrorStateImpl implements ErrorState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
+    required TResult Function(String userId) loading,
     required TResult Function() success,
     required TResult Function(String error) error,
   }) {
@@ -803,7 +833,7 @@ class _$ErrorStateImpl implements ErrorState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
+    TResult? Function(String userId)? loading,
     TResult? Function()? success,
     TResult? Function(String error)? error,
   }) {
@@ -814,7 +844,7 @@ class _$ErrorStateImpl implements ErrorState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
+    TResult Function(String userId)? loading,
     TResult Function()? success,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -863,7 +893,7 @@ class _$ErrorStateImpl implements ErrorState {
   }
 }
 
-abstract class ErrorState implements CreateProdcutState {
+abstract class ErrorState implements DeleteUserState {
   const factory ErrorState({required final String error}) = _$ErrorStateImpl;
 
   String get error;

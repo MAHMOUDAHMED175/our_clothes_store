@@ -12,7 +12,7 @@ import 'package:our_clothes_store/features/admin/add_categories/presentation/scr
 import 'package:our_clothes_store/features/admin/add_notifications/presentatoin/screens/dashboard_screen.dart';
 import 'package:our_clothes_store/features/admin/add_products/presentation/screens/add_products_screen.dart';
 import 'package:our_clothes_store/features/admin/dashboard/presentation/screens/dashboard_screen.dart';
-import 'package:our_clothes_store/features/admin/users/presentatoin/screens/dashboard_screen.dart';
+import 'package:our_clothes_store/features/admin/users/presentation/screens/users_screen.dart';
 
 List<DrawerItemModel> adminDrawerList(BuildContext context) {
   return <DrawerItemModel>[
