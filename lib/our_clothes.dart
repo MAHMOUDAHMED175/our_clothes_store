@@ -11,6 +11,7 @@ import 'package:our_clothes_store/core/routes/app_routes.dart';
 import 'package:our_clothes_store/core/services/shared_pref/pref_keys.dart';
 import 'package:our_clothes_store/core/services/shared_pref/shared_pref.dart';
 import 'package:our_clothes_store/core/style/theme/app_theme.dart';
+import 'package:overlay_support/overlay_support.dart';
 
 class OurClothes extends StatelessWidget {
   const OurClothes({super.key});
@@ -30,34 +31,48 @@ class OurClothes extends StatelessWidget {
               designSize: const Size(375, 812),
               child: BlocBuilder<AppCubitCubit, AppCubitState>(
                 builder: (context, state) {
-                  final cubit =context.read<AppCubitCubit>();
-                  return MaterialApp(
-                    title: 'OurClothes',
-                    debugShowCheckedModeBanner: EnvVaiable.instance.debugmod,
-                    theme: cubit.isDark?themeLight(): themeDark(),
-                    initialRoute: AppRoutes.login,
-                    onGenerateRoute: AppRoutes.onGenerateRoute,
-                    locale:  Locale(cubit.currentLangCode),
-                    supportedLocales: AppLocalizationsSetup.supportedLocales,
-                    localizationsDelegates:
-                        AppLocalizationsSetup.localizationsDelegates,
-                    localeResolutionCallback:
-                        AppLocalizationsSetup.localeResolutionCallback,
-                    builder: (context, child) {
-                      return GestureDetector(
-                        onDoubleTap: () {
-                          FocusManager.instance.primaryFocus!.unfocus();
-                        },
-                        child: Scaffold(
-                          body: Builder(
-                            builder: (context) {
-                              ConnectivityController.instance.init();
-                              return child!;
-                            },
+                  final cubit = context.read<AppCubitCubit>();
+                  return OverlaySupport.global(
+                    child: MaterialApp(
+                      title: 'OurClothes',
+                      debugShowCheckedModeBanner: EnvVaiable.instance.debugmod,
+                      theme: cubit.isDark ? themeDark() : themeLight(),
+                      initialRoute: 
+                      SharedPref()
+                                  .getString(PrefKeys.accessToken) !=
+                              null
+                          ? SharedPref().getString(PrefKeys.userRole) != 'admin'
+
+                              //ابقى اعكس الشاشات
+                              // ? AppRoutes.mainCustomer
+                              // : AppRoutes.homeAdmin
+                              ? AppRoutes.homeAdmin
+                              : AppRoutes.mainCustomer
+                          : AppRoutes.login,
+                      // AppRoutes.homeAdmin,
+                      onGenerateRoute: AppRoutes.onGenerateRoute,
+                      locale: Locale(cubit.currentLangCode),
+                      supportedLocales: AppLocalizationsSetup.supportedLocales,
+                      localizationsDelegates:
+                          AppLocalizationsSetup.localizationsDelegates,
+                      localeResolutionCallback:
+                          AppLocalizationsSetup.localeResolutionCallback,
+                      builder: (context, child) {
+                        return GestureDetector(
+                          onDoubleTap: () {
+                            FocusManager.instance.primaryFocus!.unfocus();
+                          },
+                          child: Scaffold(
+                            body: Builder(
+                              builder: (context) {
+                                ConnectivityController.instance.init();
+                                return child!;
+                              },
+                            ),
                           ),
-                        ),
-                      );
-                    },
+                        );
+                      },
+                    ),
                   );
                 },
               ),

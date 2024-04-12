@@ -17,7 +17,7 @@ class CustomFadeInDown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FadeInDown(
-      delay: const Duration(seconds: 2),
+      delay: const Duration(milliseconds: 200),
       duration: Duration(milliseconds: duration),
       child: child,
     );
@@ -38,7 +38,7 @@ class CustomFadeInUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FadeInUp(
-      delay: const Duration(seconds: 2),
+      delay: const Duration(milliseconds: 200),
       duration: Duration(milliseconds: duration),
       child: child,
     );
@@ -60,12 +60,12 @@ class CustomFadeInLeft extends StatelessWidget {
   Widget build(BuildContext context) {
     return SharedPref().getString(PrefKeys.language) == 'ar'
         ? FadeInLeft(
-            delay: const Duration(seconds: 2),
+            delay: const Duration(milliseconds: 200),
             duration: Duration(milliseconds: duration),
             child: child,
           )
         : FadeInRight(
-            delay: const Duration(seconds: 2),
+            delay: const Duration(milliseconds: 200),
             duration: Duration(milliseconds: duration),
             child: child,
           );
@@ -87,12 +87,12 @@ class CustomFadeInRight extends StatelessWidget {
   Widget build(BuildContext context) {
     return SharedPref().getString(PrefKeys.language) == 'ar'
         ? FadeInRight(
-            delay: const Duration(seconds: 2),
+            delay: const Duration(milliseconds: 200),
             duration: Duration(milliseconds: duration),
             child: child,
           )
         : FadeInLeft(
-            delay: const Duration(seconds: 2),
+            delay: const Duration(milliseconds: 200),
             duration: Duration(milliseconds: duration),
             child: child,
           );

@@ -5,14 +5,17 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:our_clothes_store/core/services/shared_pref/pref_keys.dart';
 import 'package:our_clothes_store/core/services/shared_pref/shared_pref.dart';
 import 'package:our_clothes_store/features/auth/data/models/login_request_body.dart';
+import 'package:our_clothes_store/features/auth/data/models/sign_up_request_body.dart';
 import 'package:our_clothes_store/features/auth/data/repos/auth_repository.dart';
-
 part 'auth_event.dart';
 part 'auth_state.dart';
 part 'auth_bloc.freezed.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  AuthBloc(this._repo) : super(const _Initial());
+AuthBloc(this._repo) : super(const _Initial()) {
+   on<LoginEvent>(_login);
+    on<SignUpEvent>(_signUp);
+  }
 
   final AuthRepository _repo;
 
@@ -23,7 +26,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final formKey = GlobalKey<FormState>();
 
 //Login
-  FutureOr<void> _login() async {
+  FutureOr<void> _login(LoginEvent event, Emitter<AuthState> emit) async {
     emit(const AuthState.loading());
     final result = await _repo.login(
       LoginRequestBody(
@@ -51,27 +54,28 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   // // signup and login to take user token
-  // FutureOr<void> _signUp(
-  //   SignUpEvent event,
-  //   Emitter<AuthState> emit,
-  // ) async {
-  //   emit(const AuthState.loading());
-  //   final result = await _repo.signUp(
-  //     SignUpRequestBody(
-  //       email: emailController.text.trim(),
-  //       password: passwordController.text,
-  //       avatar: event.imagUrl,
-  //       name: nameController.text.trim(),
-  //     ),
-  //   );
+  // signup and login to take user token
+  FutureOr<void> _signUp(
+    SignUpEvent event,
+    Emitter<AuthState> emit,
+  ) async {
+    emit(const AuthState.loading());
+    final result = await _repo.signUp(
+      SignUpRequestBody(
+        email: emailController.text.trim(),
+        password: passwordController.text,
+        avatar: event.imagUrl,
+        name: nameController.text.trim(),
+      ),
+    );
 
-  //   result.when(
-  //     success: (signupData) {
-  //       add(const AuthEvent.login());
-  //     },
-  //     failure: (error) {
-  //       emit(AuthState.error(error: error));
-  //     },
-  //   );
-  // }
+    result.when(
+      success: (signupData) {
+        add(const AuthEvent.login());
+      },
+      failure: (error) {
+        emit(AuthState.error(error: error));
+      },
+    );
+  }
 }

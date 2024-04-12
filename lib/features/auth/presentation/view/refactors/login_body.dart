@@ -1,10 +1,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:our_clothes_store/core/animations/animate_do.dart';
+import 'package:our_clothes_store/core/common/animations/animate_do.dart';
 import 'package:our_clothes_store/core/common/widgets/text_app.dart';
 import 'package:our_clothes_store/core/extensions/context_extension.dart';
 import 'package:our_clothes_store/core/language/lang_keys.dart';
+import 'package:our_clothes_store/core/routes/app_routes.dart';
 import 'package:our_clothes_store/core/style/fonts/font_weight_helper.dart';
 import 'package:our_clothes_store/features/auth/presentation/view/widgets/auth_title_info.dart';
 import 'package:our_clothes_store/features/auth/presentation/view/widgets/dark_and_lang_buttons.dart';
@@ -48,7 +49,7 @@ class LoginBody extends StatelessWidget {
               duration: 400,
               child: TextButton(
                 onPressed: () {
-                  // context.pushReplacementNamed(AppRoutes.signUp);
+                  context.pushReplacementNamed(AppRoutes.signUp);
                 },
                 child: TextApp(
                   text: context.translate(LangKeys.createAccount),

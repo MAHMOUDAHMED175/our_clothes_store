@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:our_clothes_store/core/animations/animate_do.dart';
 import 'package:our_clothes_store/core/app/app_cubit/cubit/app_cubit_cubit.dart';
+import 'package:our_clothes_store/core/common/animations/animate_do.dart';
 import 'package:our_clothes_store/core/common/widgets/custom_linear_button.dart';
 import 'package:our_clothes_store/core/common/widgets/text_app.dart';
 import 'package:our_clothes_store/core/extensions/context_extension.dart';

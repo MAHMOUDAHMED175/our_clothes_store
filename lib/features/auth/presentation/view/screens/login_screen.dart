@@ -14,7 +14,7 @@ class LoginScreen extends StatelessWidget {
       bottomNavigationBar: CustomPaint(
         size: Size(
           MediaQuery.of(context).size.width,
-          150.h,
+          100.h,
         ),
         painter: AuthCustomPainter(
           gradient: LinearGradient(

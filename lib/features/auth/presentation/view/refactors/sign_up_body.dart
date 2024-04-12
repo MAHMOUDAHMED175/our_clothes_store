@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:our_clothes_store/core/animations/animate_do.dart';
+import 'package:our_clothes_store/core/common/animations/animate_do.dart';
 import 'package:our_clothes_store/core/common/widgets/text_app.dart';
 import 'package:our_clothes_store/core/extensions/context_extension.dart';
 import 'package:our_clothes_store/core/language/lang_keys.dart';
