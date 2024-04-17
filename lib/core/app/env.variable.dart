@@ -6,7 +6,7 @@ class EnvVaiable {
   //named constructor private
   EnvVaiable._();
 
-  static final EnvVaiable instance = new EnvVaiable._();
+  static final EnvVaiable instance =  EnvVaiable._();
 
   String _envType = '';
   Future<void> init({required EnvTypeEnum envTypeEnum}) async {
