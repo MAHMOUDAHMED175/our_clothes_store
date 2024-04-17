@@ -12,7 +12,7 @@ class NoNetWorkScreen extends StatelessWidget {
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(AppImages.noNetwork),
-            fit: BoxFit.fill,
+            fit: BoxFit.contain,
           ),
         ),
       ),
