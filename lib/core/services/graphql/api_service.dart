@@ -10,6 +10,8 @@ import 'package:our_clothes_store/features/admin/users/data/models/get_all_users
 import 'package:our_clothes_store/features/auth/data/models/login_response.dart';
 import 'package:our_clothes_store/features/auth/data/models/sign_up_response.dart';
 import 'package:our_clothes_store/features/auth/data/models/user_role_response.dart';
+import 'package:our_clothes_store/features/customer/home/data/models/banners_response.dart';
+import 'package:our_clothes_store/features/customer/product_details/data/models/product_details_reponse.dart';
 import 'package:retrofit/retrofit.dart';
 part 'api_service.g.dart';
 
@@ -103,15 +105,15 @@ abstract class ApiService {
     @Body() Map<String, dynamic> mutation,
   );
 
-  // @POST(graphql)
-  // Future<BannersResponse> getBanners(
-  //   @Body() Map<String, dynamic> query,
-  // );
+  @POST(graphql)
+  Future<BannersResponse> getBanners(
+    @Body() Map<String, dynamic> query,
+  );
 
-  // @POST(graphql)
-  // Future<ProductDetailsResponse> productDetails(
-  //   @Body() Map<String, dynamic> query,
-  // );
+  @POST(graphql)
+  Future<ProductDetailsResponse> productDetails(
+    @Body() Map<String, dynamic> query,
+  );
 
   @POST(graphql)
   Future<GetAllProductResponse> getCategory(

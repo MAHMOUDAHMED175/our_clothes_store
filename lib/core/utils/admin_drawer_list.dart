@@ -9,7 +9,7 @@ import 'package:our_clothes_store/core/style/fonts/font_family_helper.dart';
 import 'package:our_clothes_store/core/style/fonts/font_weight_helper.dart';
 import 'package:our_clothes_store/core/utils/app_logout.dart';
 import 'package:our_clothes_store/features/admin/add_categories/presentation/screens/add_categories_screen.dart';
-import 'package:our_clothes_store/features/admin/add_notifications/presentatoin/screens/dashboard_screen.dart';
+import 'package:our_clothes_store/features/admin/add_notifications/presentation/screens/add_notifications_screen.dart';
 import 'package:our_clothes_store/features/admin/add_products/presentation/screens/add_products_screen.dart';
 import 'package:our_clothes_store/features/admin/dashboard/presentation/screens/dashboard_screen.dart';
 import 'package:our_clothes_store/features/admin/users/presentation/screens/users_screen.dart';

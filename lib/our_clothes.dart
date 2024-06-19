@@ -35,14 +35,13 @@ class OurClothes extends StatelessWidget {
                   return OverlaySupport.global(
                     child: MaterialApp(
                       title: 'OurClothes',
-                      debugShowCheckedModeBanner: EnvVaiable.instance.debugmod,
+                      debugShowCheckedModeBanner: EnvVariable.instance.debugMode,
                       theme: cubit.isDark ? themeDark() : themeLight(),
                       initialRoute: 
                       SharedPref()
                                   .getString(PrefKeys.accessToken) !=
                               null
                           ? SharedPref().getString(PrefKeys.userRole) != 'admin'
-
                               //ابقى اعكس الشاشات
                               // ? AppRoutes.mainCustomer
                               // : AppRoutes.homeAdmin
@@ -81,7 +80,7 @@ class OurClothes extends StatelessWidget {
         } else {
           return MaterialApp(
             title: 'No Netwrok',
-            debugShowCheckedModeBanner: EnvVaiable.instance.debugmod,
+            debugShowCheckedModeBanner: EnvVariable.instance.debugMode,
             home: const NoNetWorkScreen(),
           );
         }
