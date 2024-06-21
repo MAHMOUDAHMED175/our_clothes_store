@@ -133,7 +133,7 @@ class HomeBody extends StatelessWidget {
                       textColor: Colors.black,
                       text: context.translate(LangKeys.viewAll),
                       onPressed: () {
-                        // context.pushName(AppRoutes.productsViewAll);
+                        context.pushName(AppRoutes.productsViewAll);
                       },
                     ),
                   );

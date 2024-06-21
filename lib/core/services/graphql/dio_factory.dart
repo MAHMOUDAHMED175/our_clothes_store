@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:our_clothes_store/core/services/shared_pref/pref_keys.dart';
 import 'package:our_clothes_store/core/services/shared_pref/shared_pref.dart';
+import 'package:our_clothes_store/core/utils/app_logout.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioFactory {
@@ -52,7 +53,7 @@ class DioFactory {
         },
         onError: (error, handler) async {
           if (error.response?.statusCode == 401) {
-            // await AppLogout().logout();
+            await AppLogout().logout();
           }
         },
       ),

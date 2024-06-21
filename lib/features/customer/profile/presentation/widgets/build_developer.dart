@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -25,7 +24,7 @@ class BuildDeveloper extends StatelessWidget {
         TextApp(
           text: context.translate(LangKeys.buildDeveloper),
           theme: context.textStyle.copyWith(
-            fontSize: 18.sp,
+            fontSize: 15.sp,
             fontWeight: FontWeightHelper.regular,
           ),
         ),

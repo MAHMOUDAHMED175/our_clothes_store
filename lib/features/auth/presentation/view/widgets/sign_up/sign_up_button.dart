@@ -18,7 +18,7 @@ class SignUpButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthBloc, AuthState>(
-      listener: (context, state) {
+      listener: (context,state) {
         state.whenOrNull(success: (_) {
           showToast(
             context: context,
@@ -26,7 +26,6 @@ class SignUpButton extends StatelessWidget {
             colorText: context.color.textColor!,
             toastState: ToastStates.SUCCECC,
           );
-         
           context.pushNamedAndRemoveUntil(AppRoutes.mainCustomer);
         }, error: (message) {
           showToast(

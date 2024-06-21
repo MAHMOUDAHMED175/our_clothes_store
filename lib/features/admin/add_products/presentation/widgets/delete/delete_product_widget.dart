@@ -30,7 +30,7 @@ class DeleteProductWidget extends StatelessWidget {
                 context: context,
                 text: 'Your product has been deleted',
                 colorText: context.color.textColor!,
-                toastState: ToastStates.ERROR,
+                toastState: ToastStates.SUCCECC,
               );
              
             },

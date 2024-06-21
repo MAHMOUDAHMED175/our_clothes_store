@@ -46,6 +46,7 @@ class AddProductsBody extends StatelessWidget {
                               itemCount: 10,
                               gridDelegate:
                                   const SliverGridDelegateWithFixedCrossAxisCount(
+                                     
                                 crossAxisCount: 2, //Number of cloums
                                 crossAxisSpacing: 8, // Spacing between colums
                                 mainAxisSpacing: 15, //Spacing between rows

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:our_clothes_store/core/common/toast/show_toast.dart';
+import 'package:our_clothes_store/core/extensions/context_extension.dart';
 import 'package:our_clothes_store/features/admin/add_notifications/data/models/add_notification_model.dart';
 import 'package:our_clothes_store/features/admin/add_notifications/presentation/bloc/send_notification/send_notification_bloc.dart';
 
@@ -20,14 +22,22 @@ class SendNotificationWidget extends StatelessWidget {
       listener: (context, state) {
         state.whenOrNull(
           success: () {
-            // ShowToast.showToastSuccessTop(
-            //   message: 'Your notifications have been send successfully',
-            // );
+            showToast(
+                context: context,
+                text: 'Your notifications have been send successfully',
+                colorText: context.color.textColor!,
+                toastState: ToastStates.SUCCECC,
+              );
+           
           },
           error: (error) {
-            // ShowToast.showToastErrorTop(
-            //   message: error,
-            // );
+             showToast(
+                context: context,
+                text: error,
+                colorText: context.color.textColor!,
+                toastState: ToastStates.ERROR,
+              );
+            
           },
         );
       },

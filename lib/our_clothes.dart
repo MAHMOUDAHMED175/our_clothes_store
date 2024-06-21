@@ -34,8 +34,10 @@ class OurClothes extends StatelessWidget {
                   final cubit = context.read<AppCubitCubit>();
                   return OverlaySupport.global(
                     child: MaterialApp(
+                      navigatorKey: sl<GlobalKey<NavigatorState>>(),
                       title: 'OurClothes',
-                      debugShowCheckedModeBanner: EnvVariable.instance.debugMode,
+                      debugShowCheckedModeBanner:
+                       EnvVariable.instance.debugMode,
                       theme: cubit.isDark ? themeDark() : themeLight(),
                       initialRoute: 
                       SharedPref()
@@ -43,12 +45,10 @@ class OurClothes extends StatelessWidget {
                               null
                           ? SharedPref().getString(PrefKeys.userRole) != 'admin'
                               //ابقى اعكس الشاشات
-                              // ? AppRoutes.mainCustomer
-                              // : AppRoutes.homeAdmin
-                              ? AppRoutes.homeAdmin
-                              : AppRoutes.mainCustomer
+                              ? AppRoutes.mainCustomer
+                              : AppRoutes.homeAdmin
+                            
                           : AppRoutes.login,
-                      // AppRoutes.homeAdmin,
                       onGenerateRoute: AppRoutes.onGenerateRoute,
                       locale: Locale(cubit.currentLangCode),
                       supportedLocales: AppLocalizationsSetup.supportedLocales,
