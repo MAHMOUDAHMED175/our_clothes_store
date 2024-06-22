@@ -34,22 +34,21 @@ class OurClothes extends StatelessWidget {
                   final cubit = context.read<AppCubitCubit>();
                   return OverlaySupport.global(
                     child: MaterialApp(
+                      navigatorKey: sl<GlobalKey<NavigatorState>>(),
                       title: 'OurClothes',
-                      debugShowCheckedModeBanner: EnvVaiable.instance.debugmod,
+                      debugShowCheckedModeBanner:
+                       EnvVariable.instance.debugMode,
                       theme: cubit.isDark ? themeDark() : themeLight(),
                       initialRoute: 
                       SharedPref()
                                   .getString(PrefKeys.accessToken) !=
                               null
                           ? SharedPref().getString(PrefKeys.userRole) != 'admin'
-
                               //ابقى اعكس الشاشات
-                              // ? AppRoutes.mainCustomer
-                              // : AppRoutes.homeAdmin
-                              ? AppRoutes.homeAdmin
-                              : AppRoutes.mainCustomer
+                              ? AppRoutes.mainCustomer
+                              : AppRoutes.homeAdmin
+                            
                           : AppRoutes.login,
-                      // AppRoutes.homeAdmin,
                       onGenerateRoute: AppRoutes.onGenerateRoute,
                       locale: Locale(cubit.currentLangCode),
                       supportedLocales: AppLocalizationsSetup.supportedLocales,
@@ -81,7 +80,7 @@ class OurClothes extends StatelessWidget {
         } else {
           return MaterialApp(
             title: 'No Netwrok',
-            debugShowCheckedModeBanner: EnvVaiable.instance.debugmod,
+            debugShowCheckedModeBanner: EnvVariable.instance.debugMode,
             home: const NoNetWorkScreen(),
           );
         }

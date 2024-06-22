@@ -17,6 +17,11 @@ import 'package:our_clothes_store/features/admin/add_categories/presentation/blo
 import 'package:our_clothes_store/features/admin/add_categories/presentation/bloc/delete_category/delete_category_bloc.dart';
 import 'package:our_clothes_store/features/admin/add_categories/presentation/bloc/get_all_admin_categories/get_all_admin_categories_bloc.dart';
 import 'package:our_clothes_store/features/admin/add_categories/presentation/bloc/update_category/update_category_bloc.dart';
+import 'package:our_clothes_store/features/admin/add_notifications/data/data_source/add_notificaion_data_source.dart';
+import 'package:our_clothes_store/features/admin/add_notifications/data/repos/add_notification_repo.dart';
+import 'package:our_clothes_store/features/admin/add_notifications/presentation/bloc/add_notification/add_notification_bloc.dart';
+import 'package:our_clothes_store/features/admin/add_notifications/presentation/bloc/get_all_notification_admin/get_all_notification_admin_bloc.dart';
+import 'package:our_clothes_store/features/admin/add_notifications/presentation/bloc/send_notification/send_notification_bloc.dart';
 import 'package:our_clothes_store/features/admin/add_products/data/data_source/products_admin_data_source.dart';
 import 'package:our_clothes_store/features/admin/add_products/data/repos/products_admin_repo.dart';
 import 'package:our_clothes_store/features/admin/add_products/presentation/bloc/create_product/create_prodcut_bloc.dart';
@@ -35,6 +40,24 @@ import 'package:our_clothes_store/features/admin/users/presentation/bloc/get_all
 import 'package:our_clothes_store/features/auth/data/data_source/auth_data_source.dart';
 import 'package:our_clothes_store/features/auth/data/repos/auth_repository.dart';
 import 'package:our_clothes_store/features/auth/presentation/view_model/bloc/auth_bloc.dart';
+import 'package:our_clothes_store/features/customer/category/data/data_source/category_data_source.dart';
+import 'package:our_clothes_store/features/customer/category/data/repos/category_repo.dart';
+import 'package:our_clothes_store/features/customer/category/persentation/bloc/get_category/get_category_bloc.dart';
+import 'package:our_clothes_store/features/customer/home/data/data_source/home_data_source.dart';
+import 'package:our_clothes_store/features/customer/home/data/repos/home_repo.dart';
+import 'package:our_clothes_store/features/customer/home/presentation/bloc/get_all_categories/get_all_categories_bloc.dart';
+import 'package:our_clothes_store/features/customer/home/presentation/bloc/get_all_products/get_all_products_bloc.dart';
+import 'package:our_clothes_store/features/customer/home/presentation/bloc/get_banners/get_banners_bloc.dart';
+import 'package:our_clothes_store/features/customer/main/presentation/cubit/main_cubit.dart';
+import 'package:our_clothes_store/features/customer/product_details/data/data_source/product_details_data_source.dart';
+import 'package:our_clothes_store/features/customer/product_details/data/repos/product_details_repo.dart';
+import 'package:our_clothes_store/features/customer/product_details/presentation/bloc/product_details/product_details_bloc.dart';
+import 'package:our_clothes_store/features/customer/product_view_all/data/data_source/products_view_all_data_source.dart';
+import 'package:our_clothes_store/features/customer/product_view_all/data/repos/products_view_all_repo.dart';
+import 'package:our_clothes_store/features/customer/product_view_all/presentation/bloc/products_view_all/products_view_all_bloc.dart';
+import 'package:our_clothes_store/features/customer/profile/data/data_source/profile_data_source.dart';
+import 'package:our_clothes_store/features/customer/profile/data/repos/profile_repo.dart';
+import 'package:our_clothes_store/features/customer/profile/presentation/bloc/bloc/profile_bloc.dart';
 
 final sl = GetIt.instance;
 
@@ -45,6 +68,13 @@ Future<void> setupInjector() async {
   await _initCategoriesAdmin();
   await _initProductsAdmin();
   await _initUsersAdmin();
+  await _initAddNotification();
+  await _initMain();
+  await _initProfile();
+  await _initHome();
+  await _initProductDetails();
+  await _initCategory();
+  await _initProductsViewAll() ;
 }
 
 Future<void> _initCore() async {
@@ -106,3 +136,53 @@ Future<void> _initUsersAdmin() async {
     ..registerFactory(() => DeleteUserBloc(sl()));
 }
 
+
+Future<void> _initAddNotification() async {
+  sl
+    ..registerFactory(AddNotificationBloc.new)
+    ..registerFactory(GetAllNotificationAdminBloc.new)
+    ..registerFactory(() => SendNotificationBloc(sl()))
+    ..registerLazySingleton(() => AddNotificationRepo(sl()))
+    ..registerLazySingleton(AddNotificationDataSource.new);
+}
+
+Future<void> _initMain() async {
+  sl.registerFactory(MainCubit.new);
+}
+
+Future<void> _initProfile() async {
+  sl
+    ..registerFactory(() => ProfileBloc(sl()))
+    ..registerLazySingleton(() => ProfileRepo(sl()))
+    ..registerLazySingleton(() => ProfileDataSource(sl()));
+}
+
+Future<void> _initHome() async {
+  sl
+    ..registerFactory(() => GetBannersBloc(sl()))
+    ..registerFactory(() => GetAllCategoriesBloc(sl()))
+    ..registerFactory(() => GetAllProductsBloc(sl()))
+    ..registerLazySingleton(() => HomeRepo(sl()))
+    ..registerLazySingleton(() => HomeDataSource(sl()));
+}
+
+Future<void> _initProductDetails() async {
+  sl
+    ..registerFactory(() => ProductDetailsBloc(sl()))
+    ..registerLazySingleton(() => ProductDetailsRepo(sl()))
+    ..registerLazySingleton(() => ProductDetailsDataSource(sl()));
+}
+
+Future<void> _initCategory() async {
+  sl
+    ..registerFactory(() => GetCategoryBloc(sl()))
+    ..registerLazySingleton(() => CatgeoryRepo(sl()))
+    ..registerLazySingleton(() => CatgeoryDataSource(sl()));
+}
+
+Future<void> _initProductsViewAll() async {
+  sl
+    ..registerFactory(() => ProductsViewAllBloc(sl()))
+    ..registerLazySingleton(() => ProductsViewAllRepo(sl()))
+    ..registerLazySingleton(() => ProductsViewAllDataSource(sl()));
+}
