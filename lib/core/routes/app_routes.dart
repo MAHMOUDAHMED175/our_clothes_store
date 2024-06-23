@@ -14,6 +14,7 @@ import 'package:our_clothes_store/features/customer/main/presentation/cubit/main
 import 'package:our_clothes_store/features/customer/main/presentation/screen/main_screen.dart';
 import 'package:our_clothes_store/features/customer/product_details/presentation/screen/product_details_screen.dart';
 import 'package:our_clothes_store/features/customer/product_view_all/presentation/screen/products_view_all_screen.dart';
+import 'package:our_clothes_store/features/customer/search/presentation/screen/search_screen.dart';
 
 class AppRoutes {
   static const String login = 'login';
@@ -82,10 +83,10 @@ class AppRoutes {
         return BaseRoute(
           page: const ProductsViewAllScreen(),
         );
-      // case search:
-      //   return BaseRoute(
-      //     page: const SearchScreen(),
-      //   );
+       case search:
+        return BaseRoute(
+          page: const SearchScreen(),
+        );
 
       default:
         return BaseRoute(page: const PageUnderBuildScreen());

@@ -11,6 +11,7 @@ import 'package:our_clothes_store/core/routes/app_routes.dart';
 import 'package:our_clothes_store/core/services/shared_pref/pref_keys.dart';
 import 'package:our_clothes_store/core/services/shared_pref/shared_pref.dart';
 import 'package:our_clothes_store/core/style/theme/app_theme.dart';
+import 'package:our_clothes_store/features/customer/favorites/presentation/cubit/favorites_cubit.dart';
 import 'package:overlay_support/overlay_support.dart';
 
 class OurClothes extends StatelessWidget {
@@ -22,60 +23,68 @@ class OurClothes extends StatelessWidget {
       valueListenable: ConnectivityController.instance.isConnected,
       builder: (context, value, child) {
         if (value) {
-          return BlocProvider(
-            create: (context) => sl<AppCubitCubit>()
-              ..changeAppThemeMode(
-                sharedMode: SharedPref().getBoolean(PrefKeys.themeMode),
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => sl<FavoritesCubit>(),
               ),
+               BlocProvider(
+              create: (context) => sl<AppCubitCubit>()
+                ..changeAppThemeMode(
+                  sharedMode: SharedPref().getBoolean(PrefKeys.themeMode),
+                ),)
+              
+            ],
             child: ScreenUtilInit(
-              designSize: const Size(375, 812),
-              child: BlocBuilder<AppCubitCubit, AppCubitState>(
-                builder: (context, state) {
-                  final cubit = context.read<AppCubitCubit>();
-                  return OverlaySupport.global(
-                    child: MaterialApp(
-                      navigatorKey: sl<GlobalKey<NavigatorState>>(),
-                      title: 'OurClothes',
-                      debugShowCheckedModeBanner:
-                       EnvVariable.instance.debugMode,
-                      theme: cubit.isDark ? themeDark() : themeLight(),
-                      initialRoute: 
-                      SharedPref()
-                                  .getString(PrefKeys.accessToken) !=
-                              null
-                          ? SharedPref().getString(PrefKeys.userRole) != 'admin'
-                              //ابقى اعكس الشاشات
-                              ? AppRoutes.mainCustomer
-                              : AppRoutes.homeAdmin
-                            
-                          : AppRoutes.login,
-                      onGenerateRoute: AppRoutes.onGenerateRoute,
-                      locale: Locale(cubit.currentLangCode),
-                      supportedLocales: AppLocalizationsSetup.supportedLocales,
-                      localizationsDelegates:
-                          AppLocalizationsSetup.localizationsDelegates,
-                      localeResolutionCallback:
-                          AppLocalizationsSetup.localeResolutionCallback,
-                      builder: (context, child) {
-                        return GestureDetector(
-                          onDoubleTap: () {
-                            FocusManager.instance.primaryFocus!.unfocus();
-                          },
-                          child: Scaffold(
-                            body: Builder(
-                              builder: (context) {
-                                ConnectivityController.instance.init();
-                                return child!;
-                              },
+                designSize: const Size(375, 812),
+                child: BlocBuilder<AppCubitCubit, AppCubitState>(
+                  builder: (context, state) {
+                    final cubit = context.read<AppCubitCubit>();
+                    return OverlaySupport.global(
+                      child: MaterialApp(
+                        navigatorKey: sl<GlobalKey<NavigatorState>>(),
+                        title: 'OurClothes',
+                        debugShowCheckedModeBanner:
+                         EnvVariable.instance.debugMode,
+                        theme: cubit.isDark ? themeDark() : themeLight(),
+                        initialRoute: 
+                        SharedPref()
+                                    .getString(PrefKeys.accessToken) !=
+                                null
+                            ? SharedPref().getString(PrefKeys.userRole) != 'admin'
+                                //ابقى اعكس الشاشات
+                                ? AppRoutes.mainCustomer
+                                : AppRoutes.homeAdmin
+                              
+                            : AppRoutes.login,
+                        onGenerateRoute: AppRoutes.onGenerateRoute,
+                        locale: Locale(cubit.currentLangCode),
+                        supportedLocales: AppLocalizationsSetup.supportedLocales,
+                        localizationsDelegates:
+                            AppLocalizationsSetup.localizationsDelegates,
+                        localeResolutionCallback:
+                            AppLocalizationsSetup.localeResolutionCallback,
+                        builder: (context, child) {
+                          return GestureDetector(
+                            onDoubleTap: () {
+                              FocusManager.instance.primaryFocus!.unfocus();
+                            },
+                            child: Scaffold(
+                              body: Builder(
+                                builder: (context) {
+                                  ConnectivityController.instance.init();
+                                  return child!;
+                                },
+                              ),
                             ),
-                          ),
-                        );
-                      },
-                    ),
-                  );
-                },
+                          );
+                        },
+                      ),
+                    );
+                  },
+                ),
               ),
-            ),
+            
           );
         } else {
           return MaterialApp(

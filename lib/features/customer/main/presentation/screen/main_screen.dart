@@ -1,14 +1,15 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:our_clothes_store/core/di/injection_container.dart';
 import 'package:our_clothes_store/core/enums/nav_bar_enum.dart';
 import 'package:our_clothes_store/core/extensions/context_extension.dart';
+import 'package:our_clothes_store/features/customer/favorites/presentation/screen/favorites_screen.dart';
 import 'package:our_clothes_store/features/customer/home/presentation/screen/home_screen.dart';
 import 'package:our_clothes_store/features/customer/main/presentation/cubit/main_cubit.dart';
 import 'package:our_clothes_store/features/customer/main/presentation/refactors/bottom_nav_bar.dart';
 import 'package:our_clothes_store/features/customer/main/presentation/refactors/main_customer_app_bar.dart';
 import '../../../profile/presentation/screen/profile_screen.dart';
+
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
 
@@ -54,14 +55,6 @@ class MainScreen extends StatelessWidget {
 
 class NotificationScreen extends StatelessWidget {
   const NotificationScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
-class FavoritesScreen extends StatelessWidget {
-  const FavoritesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

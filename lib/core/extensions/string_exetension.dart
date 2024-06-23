@@ -9,10 +9,10 @@ extension StringFormate on String {
     return '${this[0].toUpperCase()}${substring(1)}';
   }
 
-  String convertLongString() {
-    final shortString = split(' ').sublist(0, split(' ').length - 2).join(' ');
-    return shortString;
-  }
+  // String convertLongString() {
+  //   final shortString = split(' ').sublist(0, split(' ').length - 1).join(' ');
+  //   return shortString;
+  // }
 
   String convertDataFormate() {
     final now = DateTime.now();

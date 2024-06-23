@@ -20,6 +20,7 @@ class TextApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
+      
       text,
       softWrap: softWrap,
       style: theme,

@@ -3,6 +3,9 @@ import 'package:dio/dio.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:our_clothes_store/core/app/env.variable.dart';
+import 'package:our_clothes_store/core/common/toast/show_toast.dart';
+import 'package:our_clothes_store/core/extensions/context_extension.dart';
+import 'package:our_clothes_store/core/language/lang_keys.dart';
 import 'package:our_clothes_store/core/services/push_notification/firebase_messaging_navigate.dart';
 
 class FirebaseCloudMessaging {
@@ -12,7 +15,7 @@ class FirebaseCloudMessaging {
 
   static final FirebaseCloudMessaging _instance = FirebaseCloudMessaging._();
 
-  static const String subscribeKey = 'asroo-store';
+  static const String subscribeKey = 'OURClothes';
 
   final _firebaseMessaging = FirebaseMessaging.instance;
 
@@ -48,17 +51,23 @@ class FirebaseCloudMessaging {
       if (isNotificationSubscribe.value == false) {
         await _subscribeNotification();
         if (!context.mounted) return;
-        // ShowToast.showToastSuccessTop(
-        //   message: context.translate(LangKeys.subscribedToNotifications),
-        //   seconds: 2,
-        // );
+         showToast(
+              context: context,
+              text:context.translate(LangKeys.subscribedToNotifications),
+              colorText: context.color.textColor!,
+              toastState: ToastStates.SUCCECC,
+            ); 
+        
       } else {
         await _unSubscribeNotification();
         if (!context.mounted) return;
-        //  ShowToast.showToastSuccessTop(
-        //   message: context.translate(LangKeys.unsubscribedToNotifications),
-        //   seconds: 2,
-        // );
+         showToast(
+              context: context,
+              text:context.translate(LangKeys.unsubscribedToNotifications),
+              colorText: context.color.textColor!,
+              toastState: ToastStates.ERROR,
+            ); 
+         
       }
     }
   }
