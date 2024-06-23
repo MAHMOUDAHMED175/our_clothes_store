@@ -1,5 +1,5 @@
 import 'dart:io';
-// import 'package:device_preview/device_preview.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -25,8 +25,7 @@ void main() async {
             messagingSenderId: '1003026458129',
             projectId: 'ourclothes-fcdb6',
           ),
-        )
-      .whenComplete(() {
+        ).whenComplete(() {
           FirebaseCloudMessaging().init();
           // LocalNotificationService.init();
         })
@@ -35,29 +34,18 @@ void main() async {
           // LocalNotificationService.init();
         });
 
-
-
-
-
   Bloc.observer = AppBlocObserver();
   await SharedPref().instantiatePreferences();
   await setupInjector();
 
-
-
   await HiveDatabase().setup();
 
-
-
-
-
   await SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp],);
-runApp(
-    // DevicePreview(
-      // builder: (context) =>P
-       const OurClothes(), // Wrap your app
-    // ),
+    [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp],
   );
- 
+  runApp(
+    DevicePreview(
+      builder: (context) => const OurClothes(), // Wrap your app
+    ),
+  );
 }

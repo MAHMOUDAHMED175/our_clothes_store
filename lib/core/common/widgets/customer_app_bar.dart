@@ -36,6 +36,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           Flexible(
             child: TextApp(
+              textOverflow: TextOverflow.ellipsis,
               text: title,
               theme: context.textStyle.copyWith(
                 fontSize: 20.sp,

@@ -24,10 +24,13 @@ class GetBannersBloc extends Bloc<GetBannersEvent, GetBannersState> {
 
     result.when(
       success: (data) {
-        if (data.bannerImageList.isEmpty) {
-          emit(const GetBannersState.empty());
-        } else {
+        if (data.bannerImageList.isNotEmpty) {
           emit(GetBannersState.success(imageBannerList: data.bannerImageList));
+          print("banner is SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+          
+        } else {
+          emit(const GetBannersState.empty());
+          print("banner is empty");
         }
       },
       failure: (error) {

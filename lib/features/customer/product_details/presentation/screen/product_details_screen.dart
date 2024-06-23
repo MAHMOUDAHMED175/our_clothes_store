@@ -36,7 +36,8 @@ class ProductDetailsScreen extends StatelessWidget {
             success: (productModel) {
               return Scaffold(
                 appBar: CustomAppBar(
-                  title: productModel.title!.convertLongString(),
+                  title: productModel.title!,
+                  
                 ),
                 bottomNavigationBar:
                     AddToCartButton(price: productModel.price ?? 0.0),
