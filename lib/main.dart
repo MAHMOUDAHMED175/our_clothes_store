@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:our_clothes_store/core/app/bloc_observer.dart';
 import 'package:our_clothes_store/core/app/env.variable.dart';
 import 'package:our_clothes_store/core/di/injection_container.dart';
+import 'package:our_clothes_store/core/services/dynamic_link/dynamic_link.dart';
 import 'package:our_clothes_store/core/services/hive/hive_database.dart';
 import 'package:our_clothes_store/core/services/push_notification/firebase_cloud_messaging.dart';
 import 'package:our_clothes_store/core/services/shared_pref/shared_pref.dart';
@@ -15,6 +16,8 @@ import 'package:our_clothes_store/our_clothes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  BitlyService().initDeepLinks();
+
   await EnvVariable.instance.init(envType: EnvTypeEnum.dev);
 
   Platform.isAndroid

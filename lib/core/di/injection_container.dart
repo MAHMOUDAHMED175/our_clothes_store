@@ -6,6 +6,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:our_clothes_store/core/app/app_cubit/cubit/app_cubit_cubit.dart';
+import 'package:our_clothes_store/core/app/share/share_cubit.dart';
 import 'package:our_clothes_store/core/app/upload_image/cubit/upload_image_cubit.dart';
 import 'package:our_clothes_store/core/app/upload_image/data_source/upload_image_data_source.dart';
 import 'package:our_clothes_store/core/app/upload_image/repo/upload_image_repo.dart';
@@ -92,6 +93,7 @@ Future<void> _initCore() async {
     ..registerLazySingleton<ApiService>(() => ApiService(dio))
     ..registerSingleton<GlobalKey<NavigatorState>>(navigatorKey)
     ..registerFactory(() => UploadImageCubit(sl()))
+    ..registerFactory(ShareCubit.new)
     ..registerLazySingleton(() => UploadImageRepo(sl()))
     ..registerLazySingleton(() => UploadImageDataSource(sl()));
 }
