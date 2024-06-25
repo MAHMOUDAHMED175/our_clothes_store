@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:our_clothes_store/core/common/widgets/customer_app_bar.dart';
 import 'package:our_clothes_store/core/di/injection_container.dart';
 import 'package:our_clothes_store/core/extensions/context_extension.dart';
-import 'package:our_clothes_store/core/extensions/string_exetension.dart';
 import 'package:our_clothes_store/features/customer/product_details/presentation/bloc/product_details/product_details_bloc.dart';
 import 'package:our_clothes_store/features/customer/product_details/presentation/refactors/add_to_cart_button.dart';
 import 'package:our_clothes_store/features/customer/product_details/presentation/refactors/product_deatils_custom_painter.dart';
