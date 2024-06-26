@@ -8,6 +8,11 @@ import 'package:our_clothes_store/features/auth/data/models/sign_up_response.dar
 import 'package:our_clothes_store/features/auth/data/models/user_role_response.dart';
 
 abstract class AuthRepositoryAbstr {
+  
+
+
+
+  
   Future<ApiResult<LoginResponse>> login(
     LoginRequestBody loginRequestBody,
   );
@@ -18,7 +23,9 @@ abstract class AuthRepositoryAbstr {
 }
 
 class AuthRepository extends AuthRepositoryAbstr {
-  AuthRepository(this._authDataSource);
+    final AuthDataSource _dataSource;
+
+  AuthRepository(this._authDataSource, this._dataSource);
 
   final AuthDataSource _authDataSource;
 
@@ -55,5 +62,8 @@ class AuthRepository extends AuthRepositoryAbstr {
     } catch (error) {
       return const ApiResult.failure('Please, try agian we have error');
     }
+  } // add user id in firebase to used with notfication data base
+  Future<void> addUserIdFirebase({required String userId}) async {
+    await _dataSource.addUserIdFirebase(userId: userId);
   }
 }

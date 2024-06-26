@@ -8,6 +8,7 @@ import 'package:our_clothes_store/features/customer/home/presentation/screen/hom
 import 'package:our_clothes_store/features/customer/main/presentation/cubit/main_cubit.dart';
 import 'package:our_clothes_store/features/customer/main/presentation/refactors/bottom_nav_bar.dart';
 import 'package:our_clothes_store/features/customer/main/presentation/refactors/main_customer_app_bar.dart';
+import 'package:our_clothes_store/features/customer/notifications/presentation/screen/notification_screen.dart';
 import '../../../profile/presentation/screen/profile_screen.dart';
 
 class MainScreen extends StatelessWidget {
@@ -30,7 +31,7 @@ class MainScreen extends StatelessWidget {
           child: Column(
             children: [
               Expanded(
-                child: BlocBuilder<MainCubit, MainState>(
+                child: BlocBuilder<MainCubit , MainState>(
                   builder: (context, state) {
                     final cubit = context.read<MainCubit>();
                     if (cubit.navBarEnum == NavBarEnum.notifications) {
@@ -53,11 +54,4 @@ class MainScreen extends StatelessWidget {
   }
 }
 
-class NotificationScreen extends StatelessWidget {
-  const NotificationScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}

@@ -1,20 +1,11 @@
-
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/material.dart';
-import 'package:our_clothes_store/core/di/injection_container.dart';
-import 'package:our_clothes_store/core/extensions/context_extension.dart';
-import 'package:our_clothes_store/core/routes/app_routes.dart';
 import 'package:our_clothes_store/core/services/push_notification/local_notfication_service.dart';
 
 class FirebaseMessagingNavigate {
   // forground
-  static Future<void> forGroundHandler(RemoteMessage? message) async {
+  static void forGroundHandler(RemoteMessage? message) {
     if (message != null) {
-      // await LocalNotificationService.showSimpleNotification(
-      //   title: message.notification!.title ?? '',
-      //   body: message.notification!.body ?? '',
-      //   payload: message.data['productId'].toString(),
-      // );
+      _navigate(message);
     }
   }
 
@@ -32,12 +23,13 @@ class FirebaseMessagingNavigate {
     }
   }
 
-  static void _navigate(RemoteMessage message) {
-    if (int.parse(message.data['productId'].toString()) == -1) return;
-    sl<GlobalKey<NavigatorState>>().currentState!.context.pushName
-    (
-          AppRoutes.productDetails,
-          arguments: int.parse(message.data['productId'].toString()),
-        );
+  static Future<void> _navigate(RemoteMessage? message) async {
+    if (message != null) {
+      await LocalNotificationService.showSimpleNotification(
+        title: message.notification!.title ?? '',
+        body: message.notification!.body ?? '',
+        payload: message.data['productId'].toString(),
+      );
+    }
   }
 }

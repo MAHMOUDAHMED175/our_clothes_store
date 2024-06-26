@@ -9,6 +9,27 @@ part 'share_cubit.freezed.dart';
 class ShareCubit extends Cubit<ShareState> {
   ShareCubit() : super(const ShareState.initial());
 
+  // Future<void> sendDynamicLinkProduct({
+  //   required String imageUrl,
+  //   required String title,
+  //   required int productId,
+  // }) async {
+  //   emit(ShareState.loading(productId: productId));
+
+  //   await BitlyService()
+  //       .shortenUrl(title: title, imageUrl: imageUrl, idpro: productId)
+  //       .then((t) {
+  //     Share.share(t.toString());
+  //   }).catchError((e) {
+  //     print(e.toString());
+  //   });
+
+  //   emit(const ShareState.success());
+  // }
+
+
+
+  
   Future<void> sendDynamicLinkProduct({
     required String imageUrl,
     required String title,
@@ -16,13 +37,13 @@ class ShareCubit extends Cubit<ShareState> {
   }) async {
     emit(ShareState.loading(productId: productId));
 
-    await BitlyService()
-        .shortenUrl(title: title, imageUrl: imageUrl, idpro: productId)
-        .then((t) {
-      Share.share(t.toString());
-    }).catchError((e) {
-      print(e.toString());
-    });
+    await DynamicLink()
+        .generateProductLink(
+          imageUrl: imageUrl,
+          productId: productId,
+          title: title,
+        )
+        .then(Share.share);
 
     emit(const ShareState.success());
   }

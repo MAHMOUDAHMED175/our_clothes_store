@@ -101,7 +101,7 @@ Future<void> _initCore() async {
 Future<void> _initAuth() async {
   sl
     ..registerFactory<AuthBloc>(() => AuthBloc(sl()))
-    ..registerLazySingleton<AuthRepository>(() => AuthRepository(sl()))
+    ..registerLazySingleton<AuthRepository>(() => AuthRepository(sl(),sl()))
     ..registerLazySingleton<AuthDataSource>(() => AuthDataSource(sl()));
 }
 

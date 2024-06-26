@@ -10,13 +10,14 @@ import 'package:our_clothes_store/core/di/injection_container.dart';
 import 'package:our_clothes_store/core/services/dynamic_link/dynamic_link.dart';
 import 'package:our_clothes_store/core/services/hive/hive_database.dart';
 import 'package:our_clothes_store/core/services/push_notification/firebase_cloud_messaging.dart';
+import 'package:our_clothes_store/core/services/push_notification/local_notfication_service.dart';
 import 'package:our_clothes_store/core/services/shared_pref/shared_pref.dart';
 
 import 'package:our_clothes_store/our_clothes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  BitlyService().initDeepLinks();
+  // BitlyService().initDeepLinks();
 
   await EnvVariable.instance.init(envType: EnvTypeEnum.dev);
 
@@ -30,11 +31,11 @@ void main() async {
           ),
         ).whenComplete(() {
           FirebaseCloudMessaging().init();
-          // LocalNotificationService.init();
+          LocalNotificationService.init();
         })
       : await Firebase.initializeApp().whenComplete(() {
           FirebaseCloudMessaging().init();
-          // LocalNotificationService.init();
+          LocalNotificationService.init();
         });
 
   Bloc.observer = AppBlocObserver();
@@ -42,6 +43,7 @@ void main() async {
   await setupInjector();
 
   await HiveDatabase().setup();
+  await DynamicLink().initDynamicLink();
 
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp],
