@@ -91,6 +91,7 @@ import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
 import 'package:our_clothes_store/core/di/injection_container.dart';
 import 'package:our_clothes_store/core/extensions/context_extension.dart';
+import 'package:our_clothes_store/core/extensions/string_exetension.dart';
 import 'package:our_clothes_store/core/routes/app_routes.dart';
 
 class DynamicLink {
@@ -108,7 +109,7 @@ class DynamicLink {
   }) async {
     final dynamicLinkParams = DynamicLinkParameters(
       socialMetaTagParameters: SocialMetaTagParameters(
-        imageUrl: Uri.parse(imageUrl),
+        imageUrl: Uri.parse(imageUrl.imageProductFormate()),
         description: 'Big Offers %50',
         title: title,
       ),

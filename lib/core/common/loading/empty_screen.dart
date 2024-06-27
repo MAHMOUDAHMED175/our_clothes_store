@@ -20,7 +20,7 @@ class EmptyScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(AppImages.emptyScreen),
+            Expanded(child: Image.asset(AppImages.emptyScreen)),
             TextApp(
               text: title!,
               theme: context.textStyle.copyWith(
