@@ -14,10 +14,12 @@ class SearchFormDataIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Icon(
-          Icons.search_sharp,
-          color: context.color.textColor,
-          size: 150,
+        Expanded(
+          child: Icon(
+            Icons.search_sharp,
+            color: context.color.textColor,
+            size: 150,
+          ),
         ),
         SizedBox(height: 10.h),
         TextApp(

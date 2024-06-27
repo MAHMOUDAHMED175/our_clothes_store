@@ -38,6 +38,7 @@ class NotificationBarIcon extends StatelessWidget {
               fontWeight: FontWeightHelper.bold,
               fontSize: 11.sp,
             ),
+            
             textAlign: TextAlign.center,
           ),
           badgeStyle: badge.BadgeStyle(
