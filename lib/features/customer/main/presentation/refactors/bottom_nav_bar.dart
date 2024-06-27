@@ -9,6 +9,7 @@ import 'package:our_clothes_store/core/extensions/context_extension.dart';
 import 'package:our_clothes_store/core/style/images/app_images.dart';
 import 'package:our_clothes_store/features/customer/main/presentation/cubit/main_cubit.dart';
 import 'package:our_clothes_store/features/customer/main/presentation/widgets/icon_tap_nav_bar.dart';
+import 'package:our_clothes_store/features/customer/main/presentation/widgets/notification_bar_icon.dart';
 
 class MainBottomNavBar extends StatelessWidget {
   const MainBottomNavBar({super.key});
@@ -56,17 +57,17 @@ class MainBottomNavBar extends StatelessWidget {
                                     },
                                   ),
                                   //Notification Screen
-                                  // GestureDetector(
-                                  //   onTap: () {
-                                  //     cubit.selectedNavBarIcons(
-                                  //       NavBarEnum.notifications,
-                                  //     );
-                                  //   },
-                                  //   child: NotificationBarIcon(
-                                  //     isSelected: cubit.navBarEnum ==
-                                  //         NavBarEnum.notifications,
-                                  //   ),
-                                  // ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      cubit.selectedNavBarIcons(
+                                        NavBarEnum.notifications,
+                                      );
+                                    },
+                                    child: NotificationBarIcon(
+                                      isSelected: cubit.navBarEnum ==
+                                          NavBarEnum.notifications,
+                                    ),
+                                  ),
 
                                   //Favourites Screen
                                   IconTapNavBar(

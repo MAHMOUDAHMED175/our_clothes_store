@@ -28,11 +28,11 @@ class SendNotificationBloc
 
     await result.when(
       success: (_) async {
-        // await _repo.addNotificationsToAllUsersFirebase(
-        //   body: event.body,
-        //   productId: event.productId,
-        //   title: event.title,
-        // );
+        await _repo.addNotificationsToAllUsersFirebase(
+          body: event.body,
+          productId: event.productId,
+          title: event.title,
+        );
         emit(const SendNotificationState.success());
       },
       failure: (error) {

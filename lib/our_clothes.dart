@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:our_clothes_store/core/app/app_cubit/cubit/app_cubit_cubit.dart';
 import 'package:our_clothes_store/core/app/connectivity_controller.dart';
 import 'package:our_clothes_store/core/app/env.variable.dart';
+import 'package:our_clothes_store/core/app/share/share_cubit.dart';
 import 'package:our_clothes_store/core/common/screen/no_network_screen.dart';
 import 'package:our_clothes_store/core/di/injection_container.dart';
 import 'package:our_clothes_store/core/language/app_localizations_setup.dart';
@@ -27,6 +28,9 @@ class OurClothes extends StatelessWidget {
             providers: [
               BlocProvider(
                 create: (context) => sl<FavoritesCubit>(),
+              ),
+               BlocProvider(
+                create: (context) => sl<ShareCubit>(),
               ),
                BlocProvider(
               create: (context) => sl<AppCubitCubit>()

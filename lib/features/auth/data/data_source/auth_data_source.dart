@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:our_clothes_store/core/services/graphql/api_service.dart';
 import 'package:our_clothes_store/core/services/graphql/graphql_queries/auth/auth_queries.dart';
+import 'package:our_clothes_store/core/utils/app_strings.dart';
 import 'package:our_clothes_store/features/auth/data/models/login_request_body.dart';
 import 'package:our_clothes_store/features/auth/data/models/login_response.dart';
 import 'package:our_clothes_store/features/auth/data/models/sign_up_request_body.dart';
@@ -38,5 +40,11 @@ class AuthDataSource {
         await _apiService.signUp(AuthQueries().signUpMapQuery(body: body));
     return response;
   }
-
+ // add user id in firebase to used with notfication data base
+  Future<void> addUserIdFirebase({required String userId}) async {
+    await FirebaseFirestore.instance
+        .collection(usersCollection)
+        .doc(userId)
+        .set({});
+  }
 }

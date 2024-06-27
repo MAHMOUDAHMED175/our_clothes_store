@@ -86,11 +86,11 @@ dependencies:
   #local database Hive
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-
+  app_links: ^6.1.1
   #Patination
   equatable: ^2.0.5
   bloc_concurrency: ^0.2.4
-  firebase_dynamic_links: ^5.4.15
+  firebase_dynamic_links: ^5.4.17
   flutter_local_notifications: ^16.3.3
 
 dev_dependencies:
